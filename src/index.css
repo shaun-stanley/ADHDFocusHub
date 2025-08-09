@@ -1,4 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-* { -webkit-tap-highlight-color: transparent; }
+
+/* iOS style subtle hairline borders */
+.hr-line { @apply border-t border-black/5 dark:border-white/10; }
+.glass {
+  @apply bg-white/70 dark:bg-white/5 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-white/5;
+}
+.card {
+  @apply rounded-3xl ring-1 ring-black/5 dark:ring-white/10 glass shadow-elev-1;
+}
+.icon-btn { @apply rounded-2xl border border-black/10 dark:border-white/10 bg-white/60 dark:bg-white/5 backdrop-blur inline-grid place-items-center; }
