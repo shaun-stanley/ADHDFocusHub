@@ -1,0 +1,9 @@
+import React from 'react';
+export function Slider({ value=[0], onValueChange, min=0, max=100 }) {
+  const v = value[0];
+  return (
+    <input type="range" min={min} max={max} value={v}
+      onChange={(e)=>onValueChange?.([Number(e.target.value)])}
+      className="w-full" />
+  );
+}
