@@ -267,19 +267,40 @@ export default function ADHDFocusHub() {
           <Rocket className="w-6 h-6" />
           <h1 className="text-xl font-semibold">ADHD Focus Hub</h1>
           <Badge className="ml-2" variant="secondary">Beta</Badge>
-          <div className="ml-auto flex items-center gap-2">
-            <Button variant="ghost" size="sm" onClick={() => setFocusMode(true)}>
-              <Focus className="w-4 h-4 mr-1" /> Focus mode
-            </Button>
-            <Button variant={whiteNoiseOn ? "default" : "secondary"} size="sm" onClick={toggleNoise}>
-              <Volume2 className="w-4 h-4 mr-1" /> {whiteNoiseOn ? "White noise on" : "White noise off"}
-            </Button>
-            <Button variant="ghost" size="icon" onClick={() => setFullscreen((f) => !f)} title="Toggle fullscreen">
-              {fullscreen ? <Minimize2 className="w-5 h-5" /> : <Maximize2 className="w-5 h-5" />}
-            </Button>
-            <Button variant="ghost" size="icon"><Settings className="w-5 h-5" /></Button>
-          </div>
-        </div>
+        <div className="ml-auto flex flex-wrap items-center gap-2 sm:gap-3">
+  {/* Focus mode: icon on mobile, text on >=sm */}
+  <div className="sm:hidden">
+    <Button variant="ghost" size="icon" aria-label="Focus mode" onClick={() => setFocusMode(true)}>
+      <Focus className="w-4 h-4" />
+    </Button>
+  </div>
+  <div className="hidden sm:block">
+    <Button variant="ghost" size="sm" onClick={() => setFocusMode(true)}>
+      <Focus className="w-4 h-4 mr-1" /> Focus mode
+    </Button>
+  </div>
+
+  {/* White noise */}
+  <div className="sm:hidden">
+    <Button variant={whiteNoiseOn ? 'default' : 'secondary'} size="icon" aria-label="Toggle white noise" onClick={toggleNoise}>
+      <Volume2 className="w-4 h-4" />
+    </Button>
+  </div>
+  <div className="hidden sm:block">
+    <Button variant={whiteNoiseOn ? 'default' : 'secondary'} size="sm" onClick={toggleNoise}>
+      <Volume2 className="w-4 h-4 mr-1" /> {whiteNoiseOn ? 'White noise on' : 'White noise off'}
+    </Button>
+  </div>
+
+  {/* Fullscreen + settings stay as icons on all sizes */}
+  <Button variant="ghost" size="icon" onClick={() => setFullscreen((f) => !f)} title="Toggle fullscreen">
+    {fullscreen ? <Minimize2 className="w-5 h-5" /> : <Maximize2 className="w-5 h-5" />}
+  </Button>
+  <Button variant="ghost" size="icon" title="Settings">
+    <Settings className="w-5 h-5" />
+  </Button>
+</div>
+
       </header>
 
       <main className="max-w-6xl mx-auto px-4 py-6 grid gap-6 md:grid-cols-12">
