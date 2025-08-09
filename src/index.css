@@ -1,13 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* iOS style subtle hairline borders */
-.hr-line { @apply border-t border-black/5 dark:border-white/10; }
-.glass {
-  @apply bg-white/70 dark:bg-white/5 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-white/5;
-}
-.card {
-  @apply rounded-3xl ring-1 ring-black/5 dark:ring-white/10 glass shadow-elev-1;
-}
-.icon-btn { @apply rounded-2xl border border-black/10 dark:border-white/10 bg-white/60 dark:bg-white/5 backdrop-blur inline-grid place-items-center; }
+@tailwind base; @tailwind components; @tailwind utilities;
+.glass{@apply backdrop-blur-md bg-white/70 dark:bg-white/5}
+.hairline{@apply ring-1 ring-black/5 dark:ring-white/10}
+.card{@apply glass hairline rounded-[22px] shadow-soft}
+.input{@apply w-full rounded-[16px] px-4 py-3 text-[15px] bg-white/80 dark:bg-white/5 hairline placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-sky-300/60}
+.btn{@apply inline-flex items-center justify-center gap-2 font-medium rounded-[16px] px-4 h-11 transition}
+.btn-primary{@apply bg-slate-900 text-white dark:bg-white dark:text-slate-900}
+.btn-tinted{@apply glass hairline}
+.btn-ghost{@apply bg-transparent hover:bg-black/5 dark:hover:bg-white/10}
+.btn-icon{@apply h-10 w-10 rounded-2xl}
+.btn-fluid{@apply w-full}

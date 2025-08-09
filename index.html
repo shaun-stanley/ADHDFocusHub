@@ -1,27 +1,10 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>ADHD Hub</title>
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b1220">
-    <style>
-      :root { color-scheme: light dark; }
-      html, body { height: 100%; }
-      body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
-      * { -webkit-tap-highlight-color: transparent; }
-    </style>
-    <script>
-      // Initialize theme from localStorage or prefers-color-scheme
-      const stored = localStorage.getItem('adhd.theme');
-      const prefers = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-      const theme = stored || prefers;
-      if (theme === 'dark') document.documentElement.classList.add('dark');
-    </script>
-  </head>
-  <body class="min-h-screen overflow-x-hidden bg-white text-slate-900 dark:bg-[#0b1220] dark:text-slate-100">
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
-</html>
+<!doctype html><html lang="en"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<title>ADHD Hub</title>
+<style>:root{color-scheme:light dark}body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Segoe UI',Roboto,Helvetica,Arial,sans-serif}*{-webkit-tap-highlight-color:transparent}</style>
+<script>
+const s=localStorage.getItem('adhd.theme');const p=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';const t=s||p;if(t==='dark')document.documentElement.classList.add('dark');
+</script>
+</head>
+<body class="min-h-screen overflow-x-hidden bg-[radial-gradient(60%_40%_at_10%_0%,#e6f0ff_0%,transparent_60%),radial-gradient(50%_50%_at_100%_0%,#f4e8ff_0%,transparent_55%)] dark:bg-[radial-gradient(60%_40%_at_10%_0%,#102042_0%,transparent_60%),radial-gradient(50%_50%_at_100%_0%,#2a1b46_0%,transparent_55%)]">
+<div id="root"></div><script type="module" src="/src/main.jsx"></script></body></html>
