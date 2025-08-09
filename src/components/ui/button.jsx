@@ -3,7 +3,8 @@ import React from 'react';
 export function Button({
   children,
   variant = 'default',
-  size = 'sm',                // default to smaller
+  size = 'sm',                 // smaller by default (mobile)
+  fluid = false,               // NEW: full-width when true
   className = '',
   ...props
 }) {
@@ -14,10 +15,10 @@ export function Button({
   };
 
   const sizes = {
-    sm: 'h-8 px-2.5 text-sm rounded-xl',
-    md: 'h-9 px-3 text-sm rounded-xl',
-    lg: 'h-10 px-4 text-base rounded-2xl',
-    icon: 'h-8 w-8 rounded-xl inline-grid place-items-center',
+    sm: 'h-9 px-3 text-sm rounded-xl md:h-10 md:px-4',     // tighter on mobile
+    md: 'h-10 px-4 text-sm md:text-base rounded-2xl',
+    lg: 'h-11 px-5 text-base rounded-2xl',
+    icon: 'h-9 w-9 md:h-10 md:w-10 rounded-xl inline-grid place-items-center',
   };
 
   return (
@@ -27,6 +28,8 @@ export function Button({
         'focus:outline-none focus:ring-2 focus:ring-slate-300 focus:ring-offset-2',
         variants[variant] ?? variants.default,
         sizes[size] ?? sizes.sm,
+        fluid ? 'w-full' : '',
+        'max-w-full whitespace-nowrap', // never overflow the container
         className,
       ].join(' ')}
       {...props}
