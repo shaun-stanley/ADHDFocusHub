@@ -309,18 +309,19 @@ export default function ADHDFocusHub() {
             <CardHeader className="pb-2"><CardTitle className="flex items-center gap-2"><Brain className="w-5 h-5"/>Brain Dump</CardTitle></CardHeader>
             <CardContent className="space-y-3">
               <Textarea value={dump} onChange={(e) => setDump(e.target.value)} placeholder="Type everything swirling in your head. No order needed." className="min-h-[110px]"/>
-              <div className="flex items-center gap-2">
-                <Button size="sm" onClick={() => setDump("")}>Clear</Button>
-                <Button size="sm" variant="secondary" onClick={() => {
-                  if (!dump.trim()) return;
-                  const newTasks = dump.split(/\\n+/).map(l => l.trim()).filter(Boolean).map(l => ({
-                    id: uid(), text: l, priority: "M", eta: 15, done: false, createdAt: Date.now(), subtasks: []
-                  }));
-                  setTasks((ts) => [...newTasks, ...ts]);
-                  setDump("");
-                }}>Send to Tasks</Button>
-                <Badge variant="outline" className="ml-auto">Tip: messy is okay</Badge>
-              </div>
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+  <Button size="sm" fluid onClick={() => setDump('')}>Clear</Button>
+  <Button size="sm" variant="secondary" fluid onClick={() => {
+    if (!dump.trim()) return;
+    const newTasks = dump.split(/\n+/).map(l => l.trim()).filter(Boolean).map(l => ({
+      id: crypto.randomUUID(), text: l, priority: 'M', eta: 15, done: false, createdAt: Date.now(), subtasks: []
+    }));
+    setTasks((ts) => [...newTasks, ...ts]);
+    setDump('');
+  }}>Send to Tasks</Button>
+  <Badge variant="outline" className="sm:ml-auto self-start sm:self-auto">Tip: messy is okay</Badge>
+</div>
+
             </CardContent>
           </Card>
 
